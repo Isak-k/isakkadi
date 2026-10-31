@@ -88,8 +88,6 @@ export async function submitContactForm(
 
   try {
     // Call Cloud Function via HTTPS endpoint
-    // This function should be deployed at:
-    // https://us-central1-{project-id}.cloudfunctions.net/submitContactMessage
     const functionUrl = import.meta.env.VITE_CONTACT_FUNCTION_URL
     if (!functionUrl) {
       return {
@@ -108,7 +106,7 @@ export async function submitContactForm(
 
     if (!response.ok) {
       const errorData = await response.json().catch(() => ({}))
-      const errorMessage = errorData.error || 'Failed to submit contact form'
+      const errorMessage = (errorData as Record<string, unknown>).error || 'Failed to submit contact form'
 
       // Handle specific error cases
       if (response.status === 429) {
@@ -120,7 +118,7 @@ export async function submitContactForm(
       if (response.status === 400) {
         return {
           success: false,
-          error: errorMessage,
+          error: errorMessage as string,
         }
       }
 
@@ -130,7 +128,7 @@ export async function submitContactForm(
       }
     }
 
-    const result = await response.json()
+    const result = await response.json() as { messageId: string }
     return {
       success: true,
       messageId: result.messageId,

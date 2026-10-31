@@ -17,7 +17,7 @@ const firebaseConfig = {
   appId: import.meta.env.VITE_FIREBASE_APP_ID || '1:550574974080:web:587f532bcef98039fe7265',
 }
 
-// Initialize Firebase
+// Initialize Firebase App
 export const firebaseApp = initializeApp(firebaseConfig)
 
 // Initialize Firebase Authentication and get a reference to the service
@@ -25,26 +25,5 @@ export const auth = getAuth(firebaseApp)
 
 // Initialize Cloud Firestore and get a reference to the service
 export const db = getFirestore(firebaseApp)
-
-// Initialize App Check with reCAPTCHA v3 for abuse prevention
-// Prevents unauthorized access to Firebase services
-// Currently disabled - uncomment if you have App Check configured in Firebase
-// declare global {
-//   var FIREBASE_APPCHECK_DEBUG_TOKEN: string | undefined
-// }
-
-// if (import.meta.env.DEV) {
-//   // Allow debug token in development (set via console if needed)
-//   // self.FIREBASE_APPCHECK_DEBUG_TOKEN = 'your_debug_token'
-// }
-
-// Get reCAPTCHA v3 public key from Firebase Console > App Check
-// Register your domain in the reCAPTCHA settings
-// initializeAppCheck(firebaseApp, {
-//   provider: new ReCaptchaV3Provider(
-//     import.meta.env.VITE_RECAPTCHA_V3_PUBLIC_KEY || '6LdtX3opAAAAAFwq4x2x1bBzPZs-K7HPNFmx-XXL' // Placeholder
-//   ),
-//   isTokenAutoRefreshEnabled: true,
-// })
 
 export default firebaseApp
