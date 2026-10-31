@@ -1,0 +1,221 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply text-text-primary font-sans;
+    background-color: #0B1120;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-bright focus-visible:ring-offset-2 focus-visible:ring-offset-bg-primary;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-blue-primary to-blue-bright bg-clip-text text-transparent;
+  }
+}
+
+@layer utilities {
+  @keyframes floatMotion {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    25% {
+      transform: translateY(-60px) translateX(30px);
+    }
+    50% {
+      transform: translateY(-100px) translateX(-40px);
+    }
+    75% {
+      transform: translateY(-60px) translateX(35px);
+    }
+  }
+
+  @keyframes pulseMotion {
+    0%, 100% {
+      opacity: 0.3;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: scale(1.5);
+    }
+  }
+
+  @keyframes flowMotion {
+    0% {
+      transform: translateY(-100%);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.6;
+    }
+    90% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+  }
+
+  @keyframes glowMotion {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.35;
+    }
+    50% {
+      transform: scale(1.2);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes breathe {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes drift {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    25% {
+      transform: translateY(-30px) translateX(15px);
+    }
+    50% {
+      transform: translateY(-50px) translateX(-15px);
+    }
+    75% {
+      transform: translateY(-25px) translateX(20px);
+    }
+  }
+
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(8px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+
+  @keyframes smoothFloat {
+    0%, 100% {
+      transform: translateY(0px) translateX(0px);
+    }
+    25% {
+      transform: translateY(-40px) translateX(20px);
+    }
+    50% {
+      transform: translateY(-60px) translateX(-20px);
+    }
+    75% {
+      transform: translateY(-30px) translateX(30px);
+    }
+  }
+
+  @keyframes flowFloat {
+    0% {
+      transform: translateY(0px) translateX(0px);
+      opacity: 0;
+    }
+    10% {
+      opacity: 0.6;
+    }
+    90% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateY(-100vh) translateX(100px);
+      opacity: 0;
+    }
+  }
+
+  @keyframes gentleBreathe {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.06;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.1);
+      opacity: 0.1;
+    }
+  }
+
+  @keyframes shimmer {
+    0%, 100% {
+      opacity: 0.05;
+    }
+    50% {
+      opacity: 0.15;
+    }
+  }
+
+  @keyframes scanlines {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(10px);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.5;
+    }
+    50% {
+      opacity: 1;
+    }
+  }
+}

@@ -1,0 +1,102 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions
+    function isPublished(doc) {
+      return doc.publicationStatus == 'published';
+    }
+
+    function isVisible(doc) {
+      return doc.visible == true;
+    }
+
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isAuthenticated() && request.auth.token.admin == true;
+    }
+
+    // Default deny all access
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // ========== PUBLIC READ ACCESS ==========
+
+    // Projects: published projects are publicly readable
+    match /projects/{projectId} {
+      allow read: if isPublished(resource.data);
+    }
+
+    // Skills: visible skills are publicly readable
+    match /skills/{skillId} {
+      allow read: if isVisible(resource.data);
+    }
+
+    // Education: visible education is publicly readable
+    match /education/{educationId} {
+      allow read: if isVisible(resource.data);
+    }
+
+    // Experience: visible experience is publicly readable
+    match /experience/{experienceId} {
+      allow read: if isVisible(resource.data);
+    }
+
+    // Site content: visible content is publicly readable
+    match /siteContent/{contentId} {
+      allow read: if isVisible(resource.data);
+    }
+
+    // Contact messages: write-only via Cloud Function
+    // Direct anonymous writes are DENIED
+    // Only authenticated Cloud Functions can write
+    match /contactMessages/{messageId} {
+      allow read: if isAdmin();
+      allow write: if false; // Use Cloud Function instead
+    }
+
+    // ========== ADMIN ACCESS ==========
+
+    // Admins can read/write all content
+    match /projects/{projectId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /skills/{skillId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /education/{educationId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /experience/{experienceId} {
+      allow read, write: if isAdmin();
+    }
+
+    match /siteContent/{contentId} {
+      allow read, write: if isAdmin();
+    }
+
+    // Admin can read contact messages
+    match /contactMessages/{messageId} {
+      allow read: if isAdmin();
+      allow write: if false; // Managed by Cloud Function
+    }
+
+    // ========== COLLECTIONS WITH SUBCOLLECTIONS ==========
+
+    // Allow listing subcollections with inherited permissions
+    match /projects/{document=**} {
+      allow read: if isPublished(resource.data);
+    }
+
+    match /skills/{document=**} {
+      allow read: if isVisible(resource.data);
+    }
+  }
+}
