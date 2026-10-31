@@ -3,8 +3,6 @@
  * Handles validation and Cloud Function integration
  */
 
-import type { ContactMessage } from '@types'
-
 export interface ContactFormData {
   name: string
   email: string

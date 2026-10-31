@@ -7,7 +7,7 @@
 import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
-import { getAppCheck, ReCaptchaV3Provider } from 'firebase/app-check'
+import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check'
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY || 'AIzaSyBmRmNdgM3JFYVzFAtSm9nM6FE6xeWC-E4',
@@ -40,11 +40,11 @@ if (import.meta.env.DEV) {
 
 // Get reCAPTCHA v3 public key from Firebase Console > App Check
 // Register your domain in the reCAPTCHA settings
-getAppCheck(firebaseApp).activate(
-  new ReCaptchaV3Provider(
+initializeAppCheck(firebaseApp, {
+  provider: new ReCaptchaV3Provider(
     import.meta.env.VITE_RECAPTCHA_V3_PUBLIC_KEY || '6LdtX3opAAAAAFwq4x2x1bBzPZs-K7HPNFmx-XXL' // Placeholder
   ),
-  true
-)
+  isTokenAutoRefreshEnabled: true,
+})
 
 export default firebaseApp

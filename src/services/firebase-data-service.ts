@@ -6,15 +6,12 @@
 import {
   collection,
   getDocs,
-  getDoc,
-  doc,
   query,
   where,
   orderBy,
   Query,
   QueryConstraint,
   DocumentData,
-  QuerySnapshot,
 } from 'firebase/firestore'
 import { db } from '@config/firebase'
 import type {
@@ -23,7 +20,6 @@ import type {
   EducationEntry,
   Experience,
   SiteContent,
-  CloudinaryImage,
 } from '@types'
 
 /**
@@ -53,21 +49,6 @@ async function queryCollection<T>(
   } catch (error) {
     console.error(`Error querying ${collectionName}:`, error)
     throw new Error(`Failed to fetch ${collectionName}`)
-  }
-}
-
-/**
- * Get single document by ID
- */
-async function getDocument<T>(collectionName: string, docId: string): Promise<T | null> {
-  try {
-    const docRef = doc(db, collectionName, docId)
-    const snapshot = await getDoc(docRef)
-    if (!snapshot.exists()) return null
-    return { id: snapshot.id, ...snapshot.data() } as T
-  } catch (error) {
-    console.error(`Error fetching document from ${collectionName}:`, error)
-    throw new Error(`Failed to fetch document from ${collectionName}`)
   }
 }
 

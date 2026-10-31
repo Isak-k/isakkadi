@@ -9,7 +9,6 @@ export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>()
   const navigate = useNavigate()
   const [project, setProject] = useState<Project | null>(null)
-  const [relatedProjects, setRelatedProjects] = useState<Project[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [allProjects, setAllProjects] = useState<Project[]>([])
@@ -87,16 +86,16 @@ export default function ProjectDetail() {
             )}
           </div>
           <h1 className="text-5xl font-bold text-text-primary mb-4">{project.title}</h1>
-          <p className="text-xl text-text-secondary">{project.description}</p>
+          <p className="text-xl text-text-secondary">{project.shortDescription}</p>
         </div>
       </section>
 
       {/* Main Image */}
-      {project.imagePlaceholder && (
+      {project.thumbnailUrl && (
         <section className="py-12 bg-bg-primary">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-gradient-to-br from-blue-primary/20 to-blue-bright/10 rounded-lg h-96 flex items-center justify-center border border-border-default">
-              <p className="text-text-muted text-lg text-center">{project.imagePlaceholder}</p>
+            <div className="bg-gradient-to-br from-blue-primary/20 to-blue-bright/10 rounded-lg h-96 flex items-center justify-center border border-border-default overflow-hidden">
+              <img src={project.thumbnailUrl} alt={project.title} className="w-full h-full object-cover" />
             </div>
           </div>
         </section>
@@ -250,12 +249,12 @@ export default function ProjectDetail() {
       </section>
 
       {/* Related Projects */}
-      {relatedProjects.length > 0 && (
+      {allProjects.length > 0 && (
         <section className="py-20 bg-bg-secondary">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-text-primary mb-8">Related Projects</h2>
+            <h2 className="text-3xl font-bold text-text-primary mb-8">More Projects</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              {relatedProjects.map(related => (
+              {allProjects.slice(0, 2).map(related => (
                 <a
                   key={related.id}
                   href={`/projects/${related.slug}`}
@@ -267,7 +266,7 @@ export default function ProjectDetail() {
                   <h3 className="text-lg font-bold text-text-primary group-hover:text-blue-bright transition-colors mb-2">
                     {related.title}
                   </h3>
-                  <p className="text-text-secondary text-sm line-clamp-2">{related.description}</p>
+                  <p className="text-text-secondary text-sm line-clamp-2">{related.shortDescription}</p>
                 </a>
               ))}
             </div>
