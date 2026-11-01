@@ -22,7 +22,7 @@ export default function Services() {
   return (
     <div className="relative">
       {/* Hero */}
-      <section className="py-20 bg-gradient-to-b from-bg-primary/80 to-transparent">
+      <section className="py-20 bg-transparent">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl font-bold text-text-primary mb-6">Services</h1>
           <p className="text-xl text-text-secondary">
@@ -32,7 +32,7 @@ export default function Services() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-gradient-to-b from-transparent to-bg-primary/30">
+      <section className="py-20 bg-transparent">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {isLoading ? (
             <div className="text-center py-12">
@@ -47,7 +47,7 @@ export default function Services() {
               {services.map(service => (
                 <div
                   key={service.id}
-                  className="bg-bg-card rounded-lg border border-border-default p-8 hover:border-blue-bright transition-colors hover:shadow-lg hover:shadow-blue-bright/10"
+                  className="bg-bg-card/80 rounded-lg border border-border-default p-8 hover:border-blue-bright transition-colors hover:shadow-lg hover:shadow-blue-bright/10"
                 >
                   <h2 className="text-2xl font-bold text-text-primary mb-4">{service.name}</h2>
                   {service.description && (

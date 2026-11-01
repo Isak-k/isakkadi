@@ -3,7 +3,7 @@ import { Header, Footer } from '@components/index'
 
 export function AppLayout() {
   return (
-    <div className="flex flex-col min-h-screen relative z-0">
+    <div className="flex flex-col min-h-screen relative z-10">
       <Header />
       <main className="flex-1 relative z-10">
         <Outlet />

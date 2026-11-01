@@ -60,7 +60,7 @@ export default function Projects() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="py-20 bg-gradient-to-b from-bg-primary/80 to-transparent">
+      <section className="py-20 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl font-bold text-text-primary mb-6">My Projects</h1>
           <p className="text-xl text-text-secondary">
@@ -109,7 +109,7 @@ export default function Projects() {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-20 bg-gradient-to-b from-transparent to-bg-primary/30">
+      <section className="py-20 bg-transparent">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {isLoading ? (
             <LoadingState message="Loading projects..." />
@@ -132,7 +132,7 @@ export default function Projects() {
                 <a
                   key={project.id}
                   href={`/projects/${project.slug}`}
-                  className="bg-bg-card rounded-lg border border-border-default overflow-hidden hover:border-blue-bright transition-all duration-fast group"
+                  className="bg-bg-card/80 rounded-lg border border-border-default overflow-hidden hover:border-blue-bright transition-all duration-fast group"
                 >
                   {/* Thumbnail */}
                   {project.thumbnailUrl ? (

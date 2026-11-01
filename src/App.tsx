@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { AppLayout } from '@layouts/AppLayout'
 import { NotFound } from '@components/index'
-import { AnimatedBackground } from '@components/AnimatedBackground'
+import { CosmicBackground } from '@components/CosmicBackground'
 import Home from '@pages/Home'
 import About from '@pages/About'
 import Services from '@pages/Services'
@@ -13,7 +13,7 @@ import Contact from '@pages/Contact'
 export function App() {
   return (
     <>
-      <AnimatedBackground />
+      <CosmicBackground />
       <Router>
         <Routes>
           <Route element={<AppLayout />}>

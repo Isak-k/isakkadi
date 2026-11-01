@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <div className="relative">
       {/* Hero */}
-      <section className="py-20 bg-gradient-to-b from-bg-primary/80 to-transparent">
+      <section className="py-20 bg-transparent">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl font-bold text-text-primary mb-6">Get in Touch</h1>
           <p className="text-xl text-text-secondary">
@@ -15,9 +15,9 @@ export default function Contact() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-20 bg-gradient-to-b from-transparent to-bg-primary/30">
+      <section className="py-20 bg-transparent">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-bg-card rounded-lg border border-border-default p-8">
+          <div className="bg-bg-card/80 rounded-lg border border-border-default p-8">
             <h2 className="text-2xl font-bold text-text-primary mb-6">Contact Information</h2>
 
             <div className="space-y-6">

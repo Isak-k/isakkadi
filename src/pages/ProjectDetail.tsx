@@ -65,7 +65,7 @@ export default function ProjectDetail() {
   return (
     <div className="min-h-screen">
       {/* Hero */}
-      <section className="py-20 bg-bg-secondary">
+      <section className="py-20 bg-transparent">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-4 flex items-center gap-2">
             <span className="text-blue-bright text-sm font-semibold uppercase tracking-wider">
@@ -92,7 +92,7 @@ export default function ProjectDetail() {
 
       {/* Main Image */}
       {project.thumbnailUrl && (
-        <section className="py-12 bg-bg-primary">
+        <section className="py-12 bg-transparent">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-gradient-to-br from-blue-primary/20 to-blue-bright/10 rounded-lg h-96 flex items-center justify-center border border-border-default overflow-hidden">
               <img src={project.thumbnailUrl} alt={project.title} className="w-full h-full object-cover" />
@@ -191,7 +191,7 @@ export default function ProjectDetail() {
             <div className="md:col-span-1">
               {/* Technologies */}
               {project.technologies && project.technologies.length > 0 && (
-                <div className="bg-bg-card rounded-lg border border-border-default p-6 mb-6">
+                <div className="bg-bg-card/80 rounded-lg border border-border-default p-6 mb-6">
                   <h3 className="text-lg font-bold text-text-primary mb-4">Technologies</h3>
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map(tech => (
@@ -207,7 +207,7 @@ export default function ProjectDetail() {
               )}
 
               {/* Links */}
-              <div className="bg-bg-card rounded-lg border border-border-default p-6 space-y-3 mb-6">
+              <div className="bg-bg-card/80 rounded-lg border border-border-default p-6 space-y-3 mb-6">
                 <h3 className="text-lg font-bold text-text-primary mb-4">Links</h3>
                 {project.projectUrl ? (
                   <a
@@ -234,7 +234,7 @@ export default function ProjectDetail() {
               </div>
 
               {/* Contact CTA */}
-              <div className="bg-bg-card rounded-lg border border-border-default p-6">
+              <div className="bg-bg-card/80 rounded-lg border border-border-default p-6">
                 <h3 className="text-lg font-bold text-text-primary mb-3">Interested?</h3>
                 <p className="text-text-secondary text-sm mb-4">
                   Let's discuss this project or work together on something new.
@@ -250,7 +250,7 @@ export default function ProjectDetail() {
 
       {/* Related Projects */}
       {allProjects.length > 0 && (
-        <section className="py-20 bg-bg-secondary">
+        <section className="py-20 bg-transparent">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-text-primary mb-8">More Projects</h2>
             <div className="grid md:grid-cols-2 gap-6">
@@ -258,7 +258,7 @@ export default function ProjectDetail() {
                 <a
                   key={related.id}
                   href={`/projects/${related.slug}`}
-                  className="bg-bg-card rounded-lg border border-border-default p-6 hover:border-blue-bright transition-colors group"
+                  className="bg-bg-card/80 rounded-lg border border-border-default p-6 hover:border-blue-bright transition-colors group"
                 >
                   <p className="text-blue-bright text-xs font-semibold uppercase tracking-wider mb-2">
                     {related.category}
@@ -276,7 +276,7 @@ export default function ProjectDetail() {
 
       {/* Navigation */}
       {(previousProject || nextProject) && (
-        <section className="py-12 bg-bg-primary border-t border-border-default">
+        <section className="py-12 border-t border-border-default/50 bg-transparent">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid md:grid-cols-2 gap-6">
               {previousProject ? (
@@ -317,7 +317,7 @@ export default function ProjectDetail() {
       )}
 
       {/* Back Link */}
-      <section className="py-12 bg-bg-primary">
+      <section className="py-12 bg-transparent">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <button
             onClick={() => navigate('/projects')}

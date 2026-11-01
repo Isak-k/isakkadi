@@ -37,7 +37,7 @@ export default function Skills() {
   return (
     <div className="relative">
       {/* Hero */}
-      <section className="py-16 border-b border-border-default bg-gradient-to-b from-bg-primary/80 to-transparent">
+      <section className="py-16 border-b border-border-default/50 bg-transparent">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold text-text-primary mb-3">Technologies & Tools</h1>
           <p className="text-text-secondary text-lg">A comprehensive toolkit for building exceptional products</p>
@@ -45,7 +45,7 @@ export default function Skills() {
       </section>
 
       {/* Skills Grid */}
-      <section className="py-16 bg-gradient-to-b from-transparent to-bg-primary/30">
+      <section className="py-16 bg-transparent">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           {isLoading ? (
             <div className="text-center py-12">

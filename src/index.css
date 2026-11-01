@@ -13,7 +13,21 @@
 
   body {
     @apply text-text-primary font-sans;
-    background-color: #0B1120;
+    background-color: #050716;
+  }
+
+  #root {
+    isolation: isolate;
+  }
+
+  .cosmic-background {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    user-select: none;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -149,21 +163,6 @@
     }
   }
 
-  @keyframes smoothFloat {
-    0%, 100% {
-      transform: translateY(0px) translateX(0px);
-    }
-    25% {
-      transform: translateY(-40px) translateX(20px);
-    }
-    50% {
-      transform: translateY(-60px) translateX(-20px);
-    }
-    75% {
-      transform: translateY(-30px) translateX(30px);
-    }
-  }
-
   @keyframes flowFloat {
     0% {
       transform: translateY(0px) translateX(0px);
@@ -201,13 +200,42 @@
     }
   }
 
-  @keyframes scanlines {
+  @keyframes marqueeContinuous {
     0% {
-      transform: translateY(0);
+      transform: translateX(0);
     }
     100% {
-      transform: translateY(10px);
+      transform: translateX(-50%);
     }
+  }
+
+  .animate-marquee-continuous {
+    display: flex;
+    width: max-content;
+    animation: marqueeContinuous 45s linear infinite;
+  }
+
+  .animate-marquee-continuous:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marqueeReverse {
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .animate-marquee-reverse {
+    display: flex;
+    width: max-content;
+    animation: marqueeReverse 45s linear infinite;
+  }
+
+  .animate-marquee-reverse:hover {
+    animation-play-state: paused;
   }
 
   @keyframes pulse {

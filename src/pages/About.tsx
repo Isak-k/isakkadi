@@ -24,7 +24,7 @@ export default function About() {
   return (
     <div className="relative">
       {/* Hero */}
-      <section className="py-20 bg-gradient-to-b from-bg-primary/80 to-transparent">
+      <section className="py-20 bg-transparent">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-5xl font-bold text-text-primary mb-6">About Me</h1>
           <p className="text-xl text-text-secondary leading-relaxed">
@@ -34,7 +34,7 @@ export default function About() {
       </section>
 
       {/* Personal Introduction */}
-      <section className="py-16 bg-gradient-to-b from-transparent to-bg-primary/30">
+      <section className="py-16 bg-transparent">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-text-primary mb-6">Who I Am</h2>
           <div className="space-y-4">
@@ -53,7 +53,7 @@ export default function About() {
 
       {/* CV Download */}
       {portfolioConfig.cvUrl && (
-        <section className="py-16 bg-gradient-to-b from-transparent to-bg-primary/30">
+        <section className="py-16 bg-transparent">
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-2xl font-bold text-text-primary mb-6">View My Resume</h2>
             <p className="text-text-secondary mb-8 max-w-2xl mx-auto">
@@ -73,7 +73,7 @@ export default function About() {
       )}
 
       {/* Education */}
-      <section className="py-16 bg-bg-secondary">
+      <section className="py-16 bg-transparent">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-text-primary mb-8">Education</h2>
 
@@ -147,7 +147,7 @@ export default function About() {
       </section>
 
       {/* Database Management Interest */}
-      <section className="py-16 bg-bg-secondary">
+      <section className="py-16 bg-transparent">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-text-primary mb-6">Database Management</h2>
           <p className="text-text-secondary text-lg leading-relaxed">
@@ -185,7 +185,7 @@ export default function About() {
       </section>
 
       {/* Professional Goals */}
-      <section className="py-16 bg-bg-secondary">
+      <section className="py-16 bg-transparent">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-text-primary mb-6">Professional Goals</h2>
           <p className="text-text-secondary text-lg leading-relaxed">
@@ -223,7 +223,7 @@ export default function About() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-bg-secondary">
+      <section className="py-16 bg-transparent">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-text-secondary text-lg mb-6">
             Want to know more about what I can do?

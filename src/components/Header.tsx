@@ -11,7 +11,7 @@ export function Header() {
   const closeMenu = () => setMobileMenuOpen(false)
 
   return (
-    <header className="sticky top-0 z-50 bg-bg-primary border-b border-border-default backdrop-blur-md bg-opacity-95">
+    <header className="sticky top-0 z-50 bg-bg-primary/75 border-b border-border-default backdrop-blur-md">
       <Container>
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
