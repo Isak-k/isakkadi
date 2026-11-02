@@ -129,10 +129,9 @@ export default function Projects() {
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredProjects.map(project => (
-                <a
+                <div
                   key={project.id}
-                  href={`/projects/${project.slug}`}
-                  className="bg-bg-card/80 rounded-lg border border-border-default overflow-hidden hover:border-blue-bright transition-all duration-fast group"
+                  className="bg-bg-card/80 rounded-lg border border-border-default overflow-hidden hover:border-blue-bright transition-all duration-fast group flex flex-col justify-between"
                 >
                   {/* Thumbnail */}
                   {project.thumbnailUrl ? (
@@ -224,8 +223,34 @@ export default function Projects() {
                         )}
                       </div>
                     )}
+
+                    {/* Card Actions */}
+                    {(project.projectUrl || project.githubUrl) && (
+                      <div className="flex items-center gap-4 pt-4 border-t border-border-default/60 text-xs">
+                        {project.projectUrl && (
+                          <a
+                            href={project.projectUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1.5 text-blue-light hover:text-blue-bright font-medium transition-colors"
+                          >
+                            <span>Live Demo ↗</span>
+                          </a>
+                        )}
+                        {project.githubUrl && (
+                          <a
+                            href={project.githubUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-1.5 text-text-muted hover:text-white transition-colors"
+                          >
+                            <span>GitHub ↗</span>
+                          </a>
+                        )}
+                      </div>
+                    )}
                   </div>
-                </a>
+                </div>
               ))}
             </div>
           )}
