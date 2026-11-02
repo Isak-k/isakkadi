@@ -101,16 +101,17 @@ export const portfolioData = {
     },
     {
       id: 'project-4',
-      slug: 'agroguard-ai',
-      title: 'AgroGuard AI Crop-Doctor',
+      slug: 'agroguard',
+      title: 'AgroGuard',
       shortDescription: 'An AI-assisted agricultural support initiative focused on crop-related information and practical agricultural support.',
       category: 'Web App',
       status: 'active' as const,
       publicationStatus: 'published' as const,
       technologies: ['React', 'AI/ML', 'Multilingual Support', 'Offline-First', 'Progressive Web App'],
+      thumbnailUrl: 'https://res.cloudinary.com/dk2aonbwf/image/upload/v1793615599/agro_epyykr.png',
       featured: true,
       displayOrder: 4,
-      overview: 'AgroGuard AI Crop-Doctor is an AI-assisted agricultural support platform providing crop-related information tailored to local agricultural practices. The platform supports English, Afaan Oromoo, and Amharic languages.',
+      overview: 'AgroGuard is an AI-assisted agricultural support platform providing crop-related information tailored to local agricultural practices. The platform supports English, Afaan Oromoo, and Amharic languages.',
       problemStatement: 'Smallholder farmers lack access to timely, relevant crop information and support in their native languages. Agricultural challenges are often unique to local contexts.',
       targetUsers: 'Smallholder farmers, agricultural extension workers, and rural farming communities in East Africa.',
       solution: 'An offline-friendly platform with multilingual support providing AI-assisted crop information and practical guidance.',
@@ -218,7 +219,7 @@ export const createDataService = (): DataService => {
       return portfolioData.projects.filter(p => p.publicationStatus === 'published')
     },
     async getProjectBySlug(slug: string) {
-      const project = portfolioData.projects.find(p => p.slug === slug && p.publicationStatus === 'published')
+      const project = portfolioData.projects.find(p => (p.slug === slug || (slug === 'agroguard-ai' && p.slug === 'agroguard')) && p.publicationStatus === 'published')
       return project || null
     },
     async getFeaturedProjects() {
