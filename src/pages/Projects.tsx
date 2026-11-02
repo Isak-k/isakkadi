@@ -70,7 +70,7 @@ export default function Projects() {
       </section>
 
       {/* Filters */}
-      <section className="py-12 bg-gradient-to-b from-bg-primary/40 to-transparent border-b border-border-default sticky top-16 z-40 backdrop-blur-sm">
+      <section className="py-8 bg-transparent border-b border-border-default">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-6">
             {/* Search */}
