@@ -136,6 +136,8 @@ export const portfolioData = {
       publicationStatus: 'published' as const,
       technologies: ['Flutter', 'Dart', 'Firebase', 'Firestore', 'Cloudinary'],
       projectUrl: 'https://play.google.com/store/apps/details?id=com.boriiftech',
+      githubUrl: 'https://github.com/Isak-k/boriif_tech.git',
+      thumbnailUrl: 'https://res.cloudinary.com/dk2aonbwf/image/upload/v1793609854/Boriif_Tech_Flutter_App_Showcase_exb0gz.png',
       featured: true,
       displayOrder: 5,
       overview: 'Boriif Tech is a Flutter-based mobile platform designed to simplify technology discovery and learning. It aggregates technology posts and app listings with an intuitive user interface.',
