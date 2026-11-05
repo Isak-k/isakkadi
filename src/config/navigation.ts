@@ -17,6 +17,7 @@ export const portfolioConfig: PortfolioConfig = {
   socialLinks: [
     { platform: 'github', url: 'https://github.com/Isak-k' },
     { platform: 'linkedin', url: 'https://www.linkedin.com/in/isak-kadi-98b39839b' },
+    { platform: 'telegram', url: 'https://t.me/freewill32' },
     { platform: 'whatsapp', url: 'https://wa.me/qr/TYFLC4CTQRM7I1' },
     { platform: 'instagram', url: 'https://www.instagram.com/isakkadi?dlrf=MWJ1NjR6cHlzNGU4cQ==' },
   ],
