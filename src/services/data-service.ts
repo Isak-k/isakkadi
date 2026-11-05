@@ -4,19 +4,19 @@ export const portfolioData = {
   projects: [
     {
       id: 'project-1',
-      slug: 'exampro',
-      title: 'ExamPro',
+      slug: 'ethiosmart',
+      title: 'EthioSmart',
       shortDescription: 'Online Examination & Learning Platform',
       category: 'Web App',
       status: 'active' as const,
       publicationStatus: 'published' as const,
       technologies: ['React.js', 'TypeScript', 'Firebase', 'Cloud Firestore', 'Tailwind CSS', 'PWA'],
-      projectUrl: 'http://exampro-nine.vercel.app/',
-      githubUrl: 'https://github.com/Isak-k/exam_pro.git',
-      thumbnailUrl: 'https://res.cloudinary.com/dk2aonbwf/image/upload/v1793392357/photo_2026-10-30_23-31-56_ylyoqw.jpg',
+      projectUrl: 'https://ethiosmart.vercel.app',
+      githubUrl: 'https://github.com/Isak-k/ethiosmart.git',
+      thumbnailUrl: 'https://res.cloudinary.com/dk2aonbwf/image/upload/v1793905518/pppff_kw4ucz.jpg',
       featured: true,
       displayOrder: 1,
-      overview: 'ExamPro is a modern online examination and learning platform designed to help university students prepare for exams, practice questions, access study materials, and track their academic progress. It provides features such as online examinations, offline practice tests, subject-based learning resources, performance analytics, leaderboards, and an AI-powered study assistant. The platform includes department-based access, multilingual support, and a responsive interface.',
+      overview: 'EthioSmart is a modern online examination and learning platform designed to help university students prepare for exams, practice questions, access study materials, and track their academic progress. It provides features such as online examinations, offline practice tests, subject-based learning resources, performance analytics, leaderboards, and an AI-powered study assistant. The platform includes department-based access, multilingual support, and a responsive interface.',
       problemStatement: 'University students struggle to find a centralized platform that combines online examinations, offline practice tests, comprehensive study resources, performance tracking, and AI-powered assistance.',
       targetUsers: 'University students, educators, academic administrators, and institutions managing educational content.',
       solution: 'A progressive web application offering comprehensive exam management, AI-powered study assistance, department-based organization, multilingual support, and offline functionality.',
@@ -219,7 +219,7 @@ export const createDataService = (): DataService => {
       return portfolioData.projects.filter(p => p.publicationStatus === 'published')
     },
     async getProjectBySlug(slug: string) {
-      const project = portfolioData.projects.find(p => (p.slug === slug || (slug === 'agroguard-ai' && p.slug === 'agroguard')) && p.publicationStatus === 'published')
+      const project = portfolioData.projects.find(p => (p.slug === slug || (slug === 'agroguard-ai' && p.slug === 'agroguard') || (slug === 'exampro' && p.slug === 'ethiosmart')) && p.publicationStatus === 'published')
       return project || null
     },
     async getFeaturedProjects() {
